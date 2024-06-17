@@ -4,7 +4,7 @@
 
 2. **API** allows two piece of software to talk to each other even if they are written in different languages.
 
-3. The **'REST'** part describes how the API is communicating which is over standard web requests.
+3. The **'REST'** part says how the API is communicating over standard web requests.
 
 
 #### API Application Example
@@ -15,7 +15,7 @@
 4. **JSON** is the language of communication
 
 
-5. An **API** describes what we want to communicate
+5. An **API** says what we want to communicate
 
 
 #### Examples Of API Use Cases
