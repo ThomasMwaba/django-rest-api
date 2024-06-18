@@ -8,4 +8,4 @@ class PlanetSerializer(serializers.ModelSerializer):
         
         model = Planet # model which it is based on 
         
-        fields = ['name','size','fact'] # fields which will be included
+        fields = ['id','name','size','fact'] # fields which will be included

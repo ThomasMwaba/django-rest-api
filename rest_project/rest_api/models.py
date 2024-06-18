@@ -8,7 +8,7 @@ class Planet(models.Model):
     
     size = models.CharField(max_length=30) # size of the planet
     
-    fact = models.CharField(max_length=50) # fact about the planet
+    fact = models.CharField(max_length=150) # fact about the planet
     
     def __str__(self):
         
