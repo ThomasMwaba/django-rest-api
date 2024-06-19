@@ -4,11 +4,16 @@ from . models import Planet
 
 from . serializers import PlanetSerializer
 
+
+from . serializers import RegisterationSerializer
+
 from rest_framework.decorators import api_view
 
 from rest_framework.response import Response
 
 from rest_framework import status
+
+from rest_framework.authtoken.models import Token
 
 # Create your views here.
 
@@ -92,6 +97,49 @@ def planet(request,pk):
         
         return Response(status=status.HTTP_204_NO_CONTENT)
         # Return the HTTP 204 status code
+        
+        
+        
+@api_view(['POST'])
+def register(request):
+    
+    if request.method == 'POST':
+        # If the request is a POST request
+        
+        serializer = RegisterationSerializer(data=request.data)
+        # serialize the incoming data
+        
+        data = {}
+        # Empty dictionary to save reponses
+        
+        if serializer.is_valid():
+            # if the serialized data is valid
+            
+            user = serializer.save()
+            # save the user
+            
+            data['response'] = 'The user has been successfully registered'
+            # save the reponse as 'user has been successfully' to be registered
+            
+            auth_token = Token.objects.get(user=user).key
+            # get the token based on the user
+            
+            data['token'] = auth_token
+            # return the token based on the user
+            
+            
+            
+        else:
+            
+            data = serializer.errors
+            # save validation error in the data dictionary from serializer.py
+        
+        return Response(data)
+        # Return the response based on data
+            
+            
+        
+        
         
         
     
